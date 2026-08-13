@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Performance -->
+    <meta name="description" content="Você está sendo direcionado para a oferta.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>Continuar para a oferta</title>
+
+    <!-- =========================================================
+         META PIXEL
+         SUBSTITUA SEU_PIXEL_ID_AQUI PELO ID DO SEU PIXEL
+         ========================================================= -->
+
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {
+            if(f.fbq)return;
+            n=f.fbq=function(){
+                n.callMethod ?
+                n.callMethod.apply(n,arguments) :
+                n.queue.push(arguments)
+            };
+
+            if(!f._fbq)f._fbq=n;
+
+            n.push=n;
+            n.loaded=!0;
+            n.version='2.0';
+            n.queue=[];
+
+            t=b.createElement(e);
+            t.async=!0;
+            t.src=v;
+
+            s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)
+        }(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+
+        fbq('init', '935926236192399');
+        fbq('track', 'PageView');
+    </script>
+
+    <noscript>
+        <img
+            height="1"
+            width="1"
+            style="display:none"
+            src="https://www.facebook.com/tr?id=935926236192399&ev=PageView&noscript=1"
+            alt=""
+        >
+    </noscript>
+
+    <style>
+        /* =====================================================
+           RESET
+           ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Arial,
+                sans-serif;
+
+            background: #f7f8fa;
+            color: #1f2937;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        /* =====================================================
+           HEADER
+           ===================================================== */
+
+        .header {
+            width: 100%;
+            background: #ffffff;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .header-content {
+            width: min(100% - 32px, 760px);
+            min-height: 70px;
+            margin: 0 auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .brand {
+            font-size: 19px;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            color: #171717;
+        }
+
+        /* =====================================================
+           MAIN
+           ===================================================== */
+
+        .main {
+            width: 100%;
+            flex: 1;
+
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+
+            padding: 44px 16px 40px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 520px;
+        }
+
+        /* =====================================================
+           CARD
+           ===================================================== */
+
+        .card {
+            width: 100%;
+            background: #ffffff;
+
+            border: 1px solid #e9eaec;
+            border-radius: 18px;
+
+            padding: 38px 30px 32px;
+
+            box-shadow:
+                0 8px 30px rgba(0, 0, 0, 0.045);
+
+            text-align: center;
+        }
+
+        /* =====================================================
+           ICON
+           ===================================================== */
+
+        .icon-wrapper {
+            width: 68px;
+            height: 68px;
+
+            margin: 0 auto 24px;
+
+            border-radius: 50%;
+
+            background: #f2f7ff;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon {
+            width: 32px;
+            height: 32px;
+
+            stroke: #2563eb;
+            stroke-width: 1.8;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* =====================================================
+           TITLES
+           ===================================================== */
+
+        .title {
+            font-size: clamp(25px, 6vw, 32px);
+            line-height: 1.18;
+
+            font-weight: 700;
+            letter-spacing: -0.7px;
+
+            color: #171717;
+
+            margin-bottom: 14px;
+        }
+
+        .subtitle {
+            max-width: 420px;
+            margin: 0 auto;
+
+            font-size: 15px;
+            line-height: 1.65;
+
+            color: #667085;
+        }
+
+        /* =====================================================
+           SECURITY
+           ===================================================== */
+
+        .security {
+            margin-top: 28px;
+
+            padding: 18px;
+
+            background: #f8fafc;
+
+            border: 1px solid #edf0f3;
+            border-radius: 12px;
+
+            text-align: left;
+
+            display: flex;
+            gap: 13px;
+            align-items: flex-start;
+        }
+
+        .security-icon {
+            width: 22px;
+            height: 22px;
+
+            flex: 0 0 22px;
+
+            margin-top: 1px;
+
+            stroke: #16a34a;
+            stroke-width: 2;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .security-title {
+            font-size: 14px;
+            font-weight: 700;
+
+            color: #20252b;
+
+            margin-bottom: 4px;
+        }
+
+        .security-text {
+            font-size: 13px;
+            line-height: 1.55;
+
+            color: #667085;
+        }
+
+        /* =====================================================
+           CTA
+           ===================================================== */
+
+        .cta {
+            width: 100%;
+
+            margin-top: 24px;
+
+            min-height: 54px;
+
+            border: 0;
+            border-radius: 10px;
+
+            background: #2563eb;
+            color: #ffffff;
+
+            font-size: 15px;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+
+            transition:
+                transform 0.15s ease,
+                opacity 0.15s ease;
+
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .cta:hover {
+            opacity: 0.94;
+        }
+
+        .cta:active {
+            transform: scale(0.985);
+        }
+
+        .cta:focus-visible {
+            outline: 3px solid rgba(37, 99, 235, 0.25);
+            outline-offset: 3px;
+        }
+
+        .arrow {
+            width: 19px;
+            height: 19px;
+
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* =====================================================
+           TRUST ITEMS
+           ===================================================== */
+
+        .trust-list {
+            margin-top: 24px;
+
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+
+            text-align: left;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+
+            font-size: 12.5px;
+            line-height: 1.45;
+
+            color: #667085;
+        }
+
+        .check {
+            width: 17px;
+            height: 17px;
+
+            flex: 0 0 17px;
+
+            margin-top: 1px;
+
+            stroke: #16a34a;
+            stroke-width: 2.2;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* =====================================================
+           FOOTER
+           ===================================================== */
+
+        .footer {
+            padding: 0 16px 28px;
+
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 7px 15px;
+        }
+
+        .footer a {
+            color: #8a919b;
+
+            font-size: 11.5px;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* =====================================================
+           ERROR
+           ===================================================== */
+
+        .error-message {
+            display: none;
+
+            margin-top: 20px;
+
+            padding: 14px;
+
+            border-radius: 10px;
+
+            background: #fff5f5;
+            border: 1px solid #ffe0e0;
+
+            color: #b42318;
+
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        /* =====================================================
+           LOADING
+           ===================================================== */
+
+        .loading {
+            display: none;
+
+            width: 18px;
+            height: 18px;
+
+            border: 2px solid rgba(255,255,255,0.35);
+            border-top-color: #ffffff;
+
+            border-radius: 50%;
+
+            animation: spin 0.7s linear infinite;
+        }
+
+        .cta.is-loading .button-text {
+            display: none;
+        }
+
+        .cta.is-loading .loading {
+            display: block;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* =====================================================
+           DESKTOP
+           ===================================================== */
+
+        @media (min-width: 700px) {
+
+            .main {
+                padding-top: 60px;
+            }
+
+            .card {
+                padding: 46px 42px 38px;
+            }
+
+            .footer {
+                padding-bottom: 32px;
+            }
+        }
+
+        /* =====================================================
+           REDUÇÃO DE MOVIMENTO
+           ===================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="header">
+        <div class="header-content">
+
+            <!-- TROQUE PELO NOME DA SUA MARCA -->
+            <div class="brand">
+                SUA MARCA
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="main">
+
+        <div class="container">
+
+            <section class="card">
+
+                <!-- ÍCONE DE REDIRECIONAMENTO -->
+                <div class="icon-wrapper">
+
+                    <svg
+                        class="icon"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <path d="M12 3v12"></path>
+                        <path d="m7 10 5 5 5-5"></path>
+                        <path d="M5 21h14"></path>
+                    </svg>
+
+                </div>
+
+
+                <!-- TÍTULO -->
+
+                <h1 class="title">
+                    Você está sendo<br>
+                    direcionado para a oferta
+                </h1>
+
+
+                <!-- TEXTO -->
+
+                <p class="subtitle">
+                    A oferta que você acessou está disponível
+                    em nossa plataforma de venda parceira.
+                </p>
+
+
+                <!-- SEGURANÇA -->
+
+                <div class="security">
+
+                    <svg
+                        class="security-icon"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <rect
+                            x="4"
+                            y="10"
+                            width="16"
+                            height="11"
+                            rx="2"
+                        ></rect>
+
+                        <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+
+                        <path d="m9 15 2 2 4-4"></path>
+                    </svg>
+
+
+                    <div>
+
+                        <div class="security-title">
+                            Compra realizada com segurança
+                        </div>
+
+                        <div class="security-text">
+                            Você será direcionado para a página
+                            da oferta para consultar preço,
+                            disponibilidade e condições de compra.
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BOTÃO -->
+
+                <button
+                    type="button"
+                    class="cta"
+                    id="continueButton"
+                >
+
+                    <span class="button-text">
+                        CONTINUAR PARA A OFERTA
+                    </span>
+
+                    <span
+                        class="loading"
+                        aria-hidden="true"
+                    ></span>
+
+                    <svg
+                        class="arrow"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <path d="M5 12h14"></path>
+                        <path d="m13 6 6 6-6 6"></path>
+                    </svg>
+
+                </button>
+
+
+                <!-- AVISOS DE CONFIANÇA -->
+
+                <div class="trust-list">
+
+                    <div class="trust-item">
+
+                        <svg
+                            class="check"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path d="m5 12 4 4L19 6"></path>
+                        </svg>
+
+                        <span>
+                            Você será direcionado ao site oficial
+                            da plataforma de venda.
+                        </span>
+
+                    </div>
+
+
+                    <div class="trust-item">
+
+                        <svg
+                            class="check"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path d="m5 12 4 4L19 6"></path>
+                        </svg>
+
+                        <span>
+                            O pagamento será realizado diretamente
+                            na plataforma.
+                        </span>
+
+                    </div>
+
+
+                    <div class="trust-item">
+
+                        <svg
+                            class="check"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path d="m5 12 4 4L19 6"></path>
+                        </svg>
+
+                        <span>
+                            Seus dados não são inseridos nesta página.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ERRO -->
+
+                <div
+                    class="error-message"
+                    id="errorMessage"
+                >
+                    Não foi possível identificar a oferta.
+                    Volte ao anúncio e tente novamente.
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer class="footer">
+
+        <div class="footer-links">
+
+            <a href="/privacidade.html">
+                Política de Privacidade
+            </a>
+
+            <a href="/termos.html">
+                Termos de Uso
+            </a>
+
+            <a href="/contato.html">
+                Fale Conosco
+            </a>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script>
+
+        /*
+         * =====================================================
+         * CONFIGURAÇÃO
+         * =====================================================
+         *
+         * O anúncio poderá abrir:
+         *
+         * https://seudominio.com/oferta?url=LINK_DA_SHOPEE
+         *
+         * A página pega o parâmetro "url" e utiliza esse
+         * endereço quando o usuário clicar no botão.
+         *
+         * =====================================================
+         */
+
+
+        const button = document.getElementById('continueButton');
+        const errorMessage = document.getElementById('errorMessage');
+
+
+        /*
+         * Recupera o destino informado na URL
+         */
+
+        const params = new URLSearchParams(window.location.search);
+
+        const destination = params.get('url');
+
+
+        /*
+         * Validação do destino
+         *
+         * IMPORTANTE:
+         * Aceitamos somente URLs HTTPS da Shopee.
+         *
+         * Isso evita que alguém utilize sua página como
+         * um redirecionador aberto para qualquer site.
+         */
+
+        function isValidShopeeUrl(value) {
+
+            if (!value) {
+                return false;
+            }
+
+            try {
+
+                const url = new URL(value);
+
+                const hostname = url.hostname.toLowerCase();
+
+                return (
+                    url.protocol === 'https:' &&
+                    (
+                        hostname === 'shopee.com.br' ||
+                        hostname.endsWith('.shopee.com.br')
+                    )
+                );
+
+            } catch (error) {
+
+                return false;
+
+            }
+
+        }
+
+
+        /*
+         * Mostra erro caso não exista destino válido
+         */
+
+        if (!isValidShopeeUrl(destination)) {
+
+            button.disabled = true;
+
+            button.style.opacity = '0.55';
+            button.style.cursor = 'not-allowed';
+
+            errorMessage.style.display = 'block';
+
+        }
+
+
+        /*
+         * Clique no botão
+         */
+
+        button.addEventListener('click', function () {
+
+            if (!isValidShopeeUrl(destination)) {
+                return;
+            }
+
+
+            /*
+             * Meta Pixel
+             *
+             * Evento personalizado para saber quantas pessoas
+             * chegaram à página e clicaram para continuar.
+             */
+
+            if (typeof fbq === 'function') {
+
+                fbq(
+                    'trackCustom',
+                    'ClickOffer',
+                    {
+                        destination: 'shopee'
+                    }
+                );
+
+            }
+
+
+            /*
+             * Estado visual de carregamento
+             */
+
+            button.classList.add('is-loading');
+            button.disabled = true;
+
+
+            /*
+             * Pequeno intervalo para permitir que o evento
+             * do Pixel seja enviado antes do redirecionamento.
+             */
+
+            setTimeout(function () {
+
+                window.location.href = destination;
+
+            }, 150);
+
+        });
+
+    </script>
+
+</body>
+</html>
