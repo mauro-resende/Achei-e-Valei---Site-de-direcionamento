@@ -58,6 +58,8 @@
     </noscript>
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
         /* =====================================================
            RESET
            ===================================================== */
@@ -114,10 +116,11 @@
         }
 
         .brand {
-            font-size: 19px;
+            font-size: 24px;
             font-weight: 700;
-            letter-spacing: -0.3px;
+            letter-spacing: 0px;
             color: #171717;
+            font-family: 'Montserrat', sans-serif;
         }
 
         /* =====================================================
@@ -281,7 +284,7 @@
             border: 0;
             border-radius: 10px;
 
-            background: #2563eb;
+            background: #3B82F6;
             color: #ffffff;
 
             font-size: 15px;
@@ -310,7 +313,7 @@
         }
 
         .cta:focus-visible {
-            outline: 3px solid rgba(37, 99, 235, 0.25);
+            outline: 3px solid rgba(59, 130, 246, 0.25);
             outline-offset: 3px;
         }
 
@@ -498,7 +501,7 @@
 
             <!-- TROQUE PELO NOME DA SUA MARCA -->
             <div class="brand">
-                SUA MARCA
+                Achei e Valeu!
             </div>
 
         </div>
@@ -523,9 +526,8 @@
                         viewBox="0 0 24 24"
                         aria-hidden="true"
                     >
-                        <path d="M12 3v12"></path>
-                        <path d="m7 10 5 5 5-5"></path>
-                        <path d="M5 21h14"></path>
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path>
                     </svg>
 
                 </div>
@@ -728,12 +730,14 @@
          * CONFIGURAÇÃO
          * =====================================================
          *
-         * O anúncio poderá abrir:
+         * A página pode abrir com os seguintes parâmetros:
          *
-         * https://seudominio.com/oferta?url=LINK_DA_SHOPEE
-         *
-         * A página pega o parâmetro "url" e utiliza esse
-         * endereço quando o usuário clicar no botão.
+         * 1. https://seudominio.com/index.html?produto=1
+         * 2. https://seudominio.com/index.html?produto=2
+         * 3. https://seudominio.com/index.html?produto=3
+         * 
+         * Ou com um link customizado:
+         * https://seudominio.com/index.html?url=LINK_DA_SHOPEE
          *
          * =====================================================
          */
@@ -744,19 +748,39 @@
 
 
         /*
-         * Recupera o destino informado na URL
+         * MAPA DE PRODUTOS
+         * Configure aqui os 3 links dos produtos
+         */
+
+        const productLinks = {
+            '1': 'https://s.shopee.com.br/2gAM9VMmkQ',
+            '2': 'https://s.shopee.com.br/LmRNOrgyM',
+            '3': 'https://s.shopee.com.br/3g2tLcTdoV'
+        };
+
+        const defaultLink = productLinks['1'];
+
+
+        /*
+         * Recupera os parâmetros da URL
          */
 
         const params = new URLSearchParams(window.location.search);
 
-        const destination = params.get('url');
+        const productParam = params.get('produto');
+        const urlParam = params.get('url');
+
+        let destination = urlParam || (productParam && productLinks[productParam]) || defaultLink;
 
 
         /*
          * Validação do destino
          *
          * IMPORTANTE:
-         * Aceitamos somente URLs HTTPS da Shopee.
+         * Aceitamos somente URLs HTTPS de marketplaces confiáveis:
+         * - Shopee
+         * - Mercado Livre
+         * - TikTok Shop
          *
          * Isso evita que alguém utilize sua página como
          * um redirecionador aberto para qualquer site.
@@ -778,7 +802,11 @@
                     url.protocol === 'https:' &&
                     (
                         hostname === 'shopee.com.br' ||
-                        hostname.endsWith('.shopee.com.br')
+                        hostname.endsWith('.shopee.com.br') ||
+                        hostname === 'mercadolivre.com.br' ||
+                        hostname.endsWith('.mercadolivre.com.br') ||
+                        hostname === 'tiktok.com' ||
+                        hostname.endsWith('.tiktok.com')
                     )
                 );
 
