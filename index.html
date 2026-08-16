@@ -14,7 +14,6 @@
 
     <!-- =========================================================
          META PIXEL
-         SUBSTITUA SEU_PIXEL_ID_AQUI PELO ID DO SEU PIXEL
          ========================================================= -->
 
     <script>
@@ -60,10 +59,6 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
-        /* =====================================================
-           RESET
-           ===================================================== */
-
         * {
             margin: 0;
             padding: 0;
@@ -95,10 +90,6 @@
             font-family: inherit;
         }
 
-        /* =====================================================
-           HEADER
-           ===================================================== */
-
         .header {
             width: 100%;
             background: #ffffff;
@@ -123,10 +114,6 @@
             font-family: 'Montserrat', sans-serif;
         }
 
-        /* =====================================================
-           MAIN
-           ===================================================== */
-
         .main {
             width: 100%;
             flex: 1;
@@ -135,17 +122,13 @@
             align-items: flex-start;
             justify-content: center;
 
-            padding: 44px 16px 40px;
+            padding: 32px 16px 40px;
         }
 
         .container {
             width: 100%;
             max-width: 520px;
         }
-
-        /* =====================================================
-           CARD
-           ===================================================== */
 
         .card {
             width: 100%;
@@ -154,7 +137,7 @@
             border: 1px solid #e9eaec;
             border-radius: 18px;
 
-            padding: 38px 30px 32px;
+            padding: 30px 30px 32px;
 
             box-shadow:
                 0 8px 30px rgba(0, 0, 0, 0.045);
@@ -162,122 +145,111 @@
             text-align: center;
         }
 
-        /* =====================================================
-           ICON
-           ===================================================== */
-
-        .icon-wrapper {
-            width: 68px;
-            height: 68px;
-
-            margin: 0 auto 24px;
-
-            border-radius: 50%;
-
-            background: #f2f7ff;
-
+        .product {
             display: flex;
             align-items: center;
-            justify-content: center;
+            gap: 14px;
+
+            padding: 12px;
+
+            background: #f8fafc;
+            border: 1px solid #edf0f3;
+            border-radius: 12px;
+
+            text-align: left;
+
+            margin-bottom: 22px;
         }
 
-        .icon {
-            width: 32px;
-            height: 32px;
+        .product-image {
+            width: 56px;
+            height: 56px;
+            flex: 0 0 56px;
 
-            stroke: #2563eb;
-            stroke-width: 1.8;
-            fill: none;
-            stroke-linecap: round;
-            stroke-linejoin: round;
+            border-radius: 8px;
+            object-fit: cover;
+
+            background: #e9eaec;
         }
 
-        /* =====================================================
-           TITLES
-           ===================================================== */
+        .product-info {
+            min-width: 0;
+        }
+
+        .product-eyebrow {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            color: #16a34a;
+            margin-bottom: 2px;
+        }
+
+        .product-name {
+            font-size: 14.5px;
+            font-weight: 700;
+            color: #171717;
+
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
 
         .title {
-            font-size: clamp(25px, 6vw, 32px);
+            font-size: clamp(23px, 6vw, 28px);
             line-height: 1.18;
 
             font-weight: 700;
-            letter-spacing: -0.7px;
+            letter-spacing: -0.6px;
 
             color: #171717;
 
-            margin-bottom: 14px;
+            margin-bottom: 10px;
         }
 
         .subtitle {
             max-width: 420px;
             margin: 0 auto;
 
-            font-size: 15px;
-            line-height: 1.65;
+            font-size: 14.5px;
+            line-height: 1.6;
 
             color: #667085;
         }
 
-        /* =====================================================
-           SECURITY
-           ===================================================== */
+        .countdown-track {
+            width: 100%;
+            height: 5px;
 
-        .security {
-            margin-top: 28px;
+            margin-top: 20px;
 
-            padding: 18px;
+            background: #eef1f4;
+            border-radius: 999px;
 
-            background: #f8fafc;
-
-            border: 1px solid #edf0f3;
-            border-radius: 12px;
-
-            text-align: left;
-
-            display: flex;
-            gap: 13px;
-            align-items: flex-start;
+            overflow: hidden;
         }
 
-        .security-icon {
-            width: 22px;
-            height: 22px;
+        .countdown-fill {
+            height: 100%;
+            width: 0%;
 
-            flex: 0 0 22px;
+            background: #3B82F6;
+            border-radius: 999px;
 
-            margin-top: 1px;
-
-            stroke: #16a34a;
-            stroke-width: 2;
-            fill: none;
-            stroke-linecap: round;
-            stroke-linejoin: round;
+            transition: width 0.1s linear;
         }
 
-        .security-title {
-            font-size: 14px;
-            font-weight: 700;
+        .countdown-text {
+            margin-top: 10px;
 
-            color: #20252b;
-
-            margin-bottom: 4px;
+            font-size: 12.5px;
+            color: #8a919b;
         }
-
-        .security-text {
-            font-size: 13px;
-            line-height: 1.55;
-
-            color: #667085;
-        }
-
-        /* =====================================================
-           CTA
-           ===================================================== */
 
         .cta {
             width: 100%;
 
-            margin-top: 24px;
+            margin-top: 18px;
 
             min-height: 54px;
 
@@ -328,16 +300,12 @@
             stroke-linejoin: round;
         }
 
-        /* =====================================================
-           TRUST ITEMS
-           ===================================================== */
-
         .trust-list {
-            margin-top: 24px;
+            margin-top: 20px;
 
             display: flex;
             flex-direction: column;
-            gap: 11px;
+            gap: 9px;
 
             text-align: left;
         }
@@ -354,10 +322,10 @@
         }
 
         .check {
-            width: 17px;
-            height: 17px;
+            width: 16px;
+            height: 16px;
 
-            flex: 0 0 17px;
+            flex: 0 0 16px;
 
             margin-top: 1px;
 
@@ -367,10 +335,6 @@
             stroke-linecap: round;
             stroke-linejoin: round;
         }
-
-        /* =====================================================
-           FOOTER
-           ===================================================== */
 
         .footer {
             padding: 0 16px 28px;
@@ -396,10 +360,6 @@
             text-decoration: underline;
         }
 
-        /* =====================================================
-           ERROR
-           ===================================================== */
-
         .error-message {
             display: none;
 
@@ -417,10 +377,6 @@
             font-size: 13px;
             line-height: 1.5;
         }
-
-        /* =====================================================
-           LOADING
-           ===================================================== */
 
         .loading {
             display: none;
@@ -450,28 +406,20 @@
             }
         }
 
-        /* =====================================================
-           DESKTOP
-           ===================================================== */
-
         @media (min-width: 700px) {
 
             .main {
-                padding-top: 60px;
+                padding-top: 48px;
             }
 
             .card {
-                padding: 46px 42px 38px;
+                padding: 38px 42px 38px;
             }
 
             .footer {
                 padding-bottom: 32px;
             }
         }
-
-        /* =====================================================
-           REDUÇÃO DE MOVIMENTO
-           ===================================================== */
 
         @media (prefers-reduced-motion: reduce) {
 
@@ -492,25 +440,14 @@
 
 <body>
 
-    <!-- =====================================================
-         HEADER
-         ===================================================== -->
-
     <header class="header">
         <div class="header-content">
-
-            <!-- TROQUE PELO NOME DA SUA MARCA -->
             <div class="brand">
                 Achei e Valeu!
             </div>
-
         </div>
     </header>
 
-
-    <!-- =====================================================
-         MAIN
-         ===================================================== -->
 
     <main class="main">
 
@@ -518,87 +455,38 @@
 
             <section class="card">
 
-                <!-- ÍCONE DE REDIRECIONAMENTO -->
-                <div class="icon-wrapper">
-
-                    <svg
-                        class="icon"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                    >
-                        <path d="M5 12h14"></path>
-                        <path d="m12 5 7 7-7 7"></path>
-                    </svg>
-
+                <div class="product" id="productBox" style="display:none;">
+                    <img class="product-image" id="productImage" src="" alt="">
+                    <div class="product-info">
+                        <div class="product-eyebrow">Sua oferta</div>
+                        <div class="product-name" id="productName">Carregando produto...</div>
+                    </div>
                 </div>
-
-
-                <!-- TÍTULO -->
 
                 <h1 class="title">
-                    Você está sendo<br>
-                    direcionado para a oferta
+                    Preparando sua oferta
                 </h1>
 
-
-                <!-- TEXTO -->
-
-                <p class="subtitle">
-                    A oferta que você acessou está disponível
-                    em nossa plataforma de venda parceira.
+                <p class="subtitle" id="subtitleText">
+                    Você será redirecionado automaticamente para
+                    a página oficial em instantes.
                 </p>
 
-
-                <!-- SEGURANÇA -->
-
-                <div class="security">
-
-                    <svg
-                        class="security-icon"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                    >
-                        <rect
-                            x="4"
-                            y="10"
-                            width="16"
-                            height="11"
-                            rx="2"
-                        ></rect>
-
-                        <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
-
-                        <path d="m9 15 2 2 4-4"></path>
-                    </svg>
-
-
-                    <div>
-
-                        <div class="security-title">
-                            Compra realizada com segurança
-                        </div>
-
-                        <div class="security-text">
-                            Você será direcionado para a página
-                            da oferta para consultar preço,
-                            disponibilidade e condições de compra.
-                        </div>
-
-                    </div>
-
+                <div class="countdown-track" aria-hidden="true">
+                    <div class="countdown-fill" id="countdownFill"></div>
                 </div>
 
-
-                <!-- BOTÃO -->
+                <div class="countdown-text" id="countdownText">
+                    Redirecionando em 3s...
+                </div>
 
                 <button
                     type="button"
                     class="cta"
                     id="continueButton"
                 >
-
                     <span class="button-text">
-                        CONTINUAR PARA A OFERTA
+                        IR AGORA PARA A OFERTA
                     </span>
 
                     <span
@@ -614,75 +502,31 @@
                         <path d="M5 12h14"></path>
                         <path d="m13 6 6 6-6 6"></path>
                     </svg>
-
                 </button>
-
-
-                <!-- AVISOS DE CONFIANÇA -->
 
                 <div class="trust-list">
 
                     <div class="trust-item">
-
-                        <svg
-                            class="check"
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                        >
+                        <svg class="check" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="m5 12 4 4L19 6"></path>
                         </svg>
-
                         <span>
-                            Você será direcionado ao site oficial
-                            da plataforma de venda.
+                            Compra 100% no site oficial da plataforma parceira.
                         </span>
-
                     </div>
 
-
                     <div class="trust-item">
-
-                        <svg
-                            class="check"
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                        >
+                        <svg class="check" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="m5 12 4 4L19 6"></path>
                         </svg>
-
                         <span>
-                            O pagamento será realizado diretamente
-                            na plataforma.
+                            Preço, estoque e pagamento você confere lá.
                         </span>
-
-                    </div>
-
-
-                    <div class="trust-item">
-
-                        <svg
-                            class="check"
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                        >
-                            <path d="m5 12 4 4L19 6"></path>
-                        </svg>
-
-                        <span>
-                            Seus dados não são inseridos nesta página.
-                        </span>
-
                     </div>
 
                 </div>
 
-
-                <!-- ERRO -->
-
-                <div
-                    class="error-message"
-                    id="errorMessage"
-                >
+                <div class="error-message" id="errorMessage">
                     Não foi possível identificar a oferta.
                     Volte ao anúncio e tente novamente.
                 </div>
@@ -693,98 +537,53 @@
 
     </main>
 
-
-    <!-- =====================================================
-         FOOTER
-         ===================================================== -->
-
     <footer class="footer">
-
         <div class="footer-links">
-
-            <a href="/privacidade.html">
-                Política de Privacidade
-            </a>
-
-            <a href="/termos.html">
-                Termos de Uso
-            </a>
-
-            <a href="/contato.html">
-                Fale Conosco
-            </a>
-
+            <a href="/privacidade.html">Política de Privacidade</a>
+            <a href="/termos.html">Termos de Uso</a>
+            <a href="/contato.html">Fale Conosco</a>
         </div>
-
     </footer>
-
-
-    <!-- =====================================================
-         JAVASCRIPT
-         ===================================================== -->
 
     <script>
 
-        /*
-         * =====================================================
-         * CONFIGURAÇÃO
-         * =====================================================
-         *
-         * A página pode abrir com os seguintes parâmetros:
-         *
-         * 1. https://seudominio.com/index.html?produto=1
-         * 2. https://seudominio.com/index.html?produto=2
-         * 3. https://seudominio.com/index.html?produto=3
-         * 
-         * Ou com um link customizado:
-         * https://seudominio.com/index.html?url=LINK_DA_SHOPEE
-         *
-         * =====================================================
-         */
-
-
         const button = document.getElementById('continueButton');
         const errorMessage = document.getElementById('errorMessage');
+        const productBox = document.getElementById('productBox');
+        const productImage = document.getElementById('productImage');
+        const productName = document.getElementById('productName');
+        const subtitleText = document.getElementById('subtitleText');
+        const countdownFill = document.getElementById('countdownFill');
+        const countdownText = document.getElementById('countdownText');
 
-
-        /*
-         * MAPA DE PRODUTOS
-         * Configure aqui os 3 links dos produtos
-         */
-
-        const productLinks = {
-            '1': 'https://s.shopee.com.br/2gAM9VMmkQ',
-            '2': 'https://s.shopee.com.br/LmRNOrgyM',
-            '3': 'https://s.shopee.com.br/3g2tLcTdoV'
+        const productData = {
+            '1': {
+                name: 'Mop Espremedor Automático',
+                image: 'img/mop.jpg',
+                link: 'https://s.shopee.com.br/2gAM9VMmkQ'
+            },
+            '2': {
+                name: 'Espremedor de Frutas Elétrico',
+                image: 'img/espremedor.jpg',
+                link: 'https://s.shopee.com.br/LmRNOrgyM'
+            },
+            '3': {
+                name: 'Penteadeira com Espelho e Luzes LED',
+                image: 'img/penteadeira.jpg',
+                link: 'https://s.shopee.com.br/3g2tLcTdoV'
+            }
         };
 
-        const defaultLink = productLinks['1'];
-
-
-        /*
-         * Recupera os parâmetros da URL
-         */
+        const defaultProductId = '1';
 
         const params = new URLSearchParams(window.location.search);
 
         const productParam = params.get('produto');
         const urlParam = params.get('url');
 
-        let destination = urlParam || (productParam && productLinks[productParam]) || defaultLink;
+        const selectedProduct = productData[productParam] || productData[defaultProductId];
 
-
-        /*
-         * Validação do destino
-         *
-         * IMPORTANTE:
-         * Aceitamos somente URLs HTTPS de marketplaces confiáveis:
-         * - Shopee
-         * - Mercado Livre
-         * - TikTok Shop
-         *
-         * Isso evita que alguém utilize sua página como
-         * um redirecionador aberto para qualquer site.
-         */
+        let destination = urlParam || selectedProduct.link;
 
         function isValidShopeeUrl(value) {
 
@@ -818,12 +617,59 @@
 
         }
 
+        const destinationIsValid = isValidShopeeUrl(destination);
 
-        /*
-         * Mostra erro caso não exista destino válido
-         */
+        if (destinationIsValid && !urlParam) {
 
-        if (!isValidShopeeUrl(destination)) {
+            productBox.style.display = 'flex';
+            productName.textContent = selectedProduct.name;
+            productImage.src = selectedProduct.image;
+            productImage.alt = selectedProduct.name;
+
+            subtitleText.textContent =
+                'Você será redirecionado para a página oficial da oferta em instantes.';
+
+        }
+
+        if (destinationIsValid && typeof fbq === 'function') {
+
+            fbq('track', 'ViewContent', {
+                content_name: selectedProduct.name,
+                content_ids: [productParam || defaultProductId],
+                content_type: 'product'
+            });
+
+        }
+
+        let hasRedirected = false;
+
+        function redirectNow() {
+
+            if (hasRedirected || !destinationIsValid) {
+                return;
+            }
+
+            hasRedirected = true;
+
+            if (typeof fbq === 'function') {
+
+                fbq('trackCustom', 'ClickOffer', {
+                    destination: 'shopee',
+                    content_name: selectedProduct.name
+                });
+
+            }
+
+            button.classList.add('is-loading');
+            button.disabled = true;
+
+            setTimeout(function () {
+                window.location.href = destination;
+            }, 150);
+
+        }
+
+        if (!destinationIsValid) {
 
             button.disabled = true;
 
@@ -832,60 +678,35 @@
 
             errorMessage.style.display = 'block';
 
+            countdownFill.parentElement.style.display = 'none';
+            countdownText.style.display = 'none';
+
+        } else {
+
+            const totalMs = 3000;
+            const stepMs = 100;
+            let elapsed = 0;
+
+            const timer = setInterval(function () {
+
+                elapsed += stepMs;
+
+                const percent = Math.min(100, (elapsed / totalMs) * 100);
+                countdownFill.style.width = percent + '%';
+
+                const secondsLeft = Math.max(0, Math.ceil((totalMs - elapsed) / 1000));
+                countdownText.textContent = 'Redirecionando em ' + secondsLeft + 's...';
+
+                if (elapsed >= totalMs) {
+                    clearInterval(timer);
+                    redirectNow();
+                }
+
+            }, stepMs);
+
         }
 
-
-        /*
-         * Clique no botão
-         */
-
-        button.addEventListener('click', function () {
-
-            if (!isValidShopeeUrl(destination)) {
-                return;
-            }
-
-
-            /*
-             * Meta Pixel
-             *
-             * Evento personalizado para saber quantas pessoas
-             * chegaram à página e clicaram para continuar.
-             */
-
-            if (typeof fbq === 'function') {
-
-                fbq(
-                    'trackCustom',
-                    'ClickOffer',
-                    {
-                        destination: 'shopee'
-                    }
-                );
-
-            }
-
-
-            /*
-             * Estado visual de carregamento
-             */
-
-            button.classList.add('is-loading');
-            button.disabled = true;
-
-
-            /*
-             * Pequeno intervalo para permitir que o evento
-             * do Pixel seja enviado antes do redirecionamento.
-             */
-
-            setTimeout(function () {
-
-                window.location.href = destination;
-
-            }, 150);
-
-        });
+        button.addEventListener('click', redirectNow);
 
     </script>
 
