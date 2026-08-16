@@ -458,7 +458,7 @@
                 <div class="product" id="productBox" style="display:none;">
                     <img class="product-image" id="productImage" src="" alt="">
                     <div class="product-info">
-                        <div class="product-eyebrow">Sua oferta</div>
+                        <div class="product-eyebrow" id="productEyebrow">Sua oferta</div>
                         <div class="product-name" id="productName">Carregando produto...</div>
                     </div>
                 </div>
@@ -485,7 +485,7 @@
                     class="cta"
                     id="continueButton"
                 >
-                    <span class="button-text">
+                    <span class="button-text" id="ctaText">
                         IR AGORA PARA A OFERTA
                     </span>
 
@@ -504,13 +504,13 @@
                     </svg>
                 </button>
 
-                <div class="trust-list">
+                <div class="trust-list" id="trustList">
 
                     <div class="trust-item">
                         <svg class="check" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="m5 12 4 4L19 6"></path>
                         </svg>
-                        <span>
+                        <span id="trustItem1">
                             Compra 100% no site oficial da plataforma parceira.
                         </span>
                     </div>
@@ -519,7 +519,7 @@
                         <svg class="check" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="m5 12 4 4L19 6"></path>
                         </svg>
-                        <span>
+                        <span id="trustItem2">
                             Preço, estoque e pagamento você confere lá.
                         </span>
                     </div>
@@ -552,10 +552,16 @@
         const productBox = document.getElementById('productBox');
         const productImage = document.getElementById('productImage');
         const productName = document.getElementById('productName');
+        const productEyebrow = document.getElementById('productEyebrow');
         const subtitleText = document.getElementById('subtitleText');
         const countdownFill = document.getElementById('countdownFill');
         const countdownText = document.getElementById('countdownText');
+        const ctaText = document.getElementById('ctaText');
+        const trustItem1 = document.getElementById('trustItem1');
+        const trustItem2 = document.getElementById('trustItem2');
 
+        // Cada entrada é uma "gaveta" independente usada via ?produto=ID.
+        // Adicionar uma entrada nova NUNCA afeta as que já estão em anúncios no ar.
         const productData = {
             '1': {
                 name: 'Mop Espremedor Automático',
@@ -571,6 +577,18 @@
                 name: 'Penteadeira com Espelho e Luzes LED',
                 image: 'img/penteadeira.jpg',
                 link: 'https://s.shopee.com.br/3g2tLcTdoV'
+            },
+            'canal': {
+                name: 'Canal Achei e Valeu',
+                eyebrow: 'Ofertas todo dia',
+                image: 'img/canal.jpg',
+                link: 'https://whatsapp.com/channel/0029Vb8OoQTLSmbei6xLQ10J',
+                subtitle: 'Você será direcionado para o Canal Achei e Valeu no WhatsApp em instantes.',
+                ctaLabel: 'ENTRAR NO CANAL AGORA',
+                trustItems: [
+                    'Canal gratuito e oficial do Achei e Valeu.',
+                    'Saia quando quiser, sem compromisso.'
+                ]
             }
         };
 
@@ -585,7 +603,7 @@
 
         let destination = urlParam || selectedProduct.link;
 
-        function isValidShopeeUrl(value) {
+        function isValidDestinationUrl(value) {
 
             if (!value) {
                 return false;
@@ -605,7 +623,10 @@
                         hostname === 'mercadolivre.com.br' ||
                         hostname.endsWith('.mercadolivre.com.br') ||
                         hostname === 'tiktok.com' ||
-                        hostname.endsWith('.tiktok.com')
+                        hostname.endsWith('.tiktok.com') ||
+                        hostname === 'whatsapp.com' ||
+                        hostname.endsWith('.whatsapp.com') ||
+                        hostname === 'wa.me'
                     )
                 );
 
@@ -617,7 +638,7 @@
 
         }
 
-        const destinationIsValid = isValidShopeeUrl(destination);
+        const destinationIsValid = isValidDestinationUrl(destination);
 
         if (destinationIsValid && !urlParam) {
 
@@ -625,9 +646,18 @@
             productName.textContent = selectedProduct.name;
             productImage.src = selectedProduct.image;
             productImage.alt = selectedProduct.name;
+            productEyebrow.textContent = selectedProduct.eyebrow || 'Sua oferta';
 
             subtitleText.textContent =
+                selectedProduct.subtitle ||
                 'Você será redirecionado para a página oficial da oferta em instantes.';
+
+            ctaText.textContent = selectedProduct.ctaLabel || 'IR AGORA PARA A OFERTA';
+
+            if (selectedProduct.trustItems) {
+                trustItem1.textContent = selectedProduct.trustItems[0];
+                trustItem2.textContent = selectedProduct.trustItems[1];
+            }
 
         }
 
@@ -654,7 +684,7 @@
             if (typeof fbq === 'function') {
 
                 fbq('trackCustom', 'ClickOffer', {
-                    destination: 'shopee',
+                    destination: productParam || defaultProductId,
                     content_name: selectedProduct.name
                 });
 
@@ -686,7 +716,7 @@
             const totalMs = 3000;
             const stepMs = 100;
             let elapsed = 0;
-
+            
             const timer = setInterval(function () {
 
                 elapsed += stepMs;
